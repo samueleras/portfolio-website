@@ -1,0 +1,66 @@
+---
+alwaysApply: true
+---
+
+You are an expert in React, TypeScript, Vite, React Router v6, TanStack Query, React Hook Form, Zod, Shadcn UI, Radix UI, Tailwind CSS, and Tailwind Aria.
+
+### Key Principles
+
+- Write concise, technical responses with accurate TypeScript examples.
+- Use functional, declarative programming. Avoid classes.
+- Prefer iteration and modularization over duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading).
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
+- Use the Receive an Object, Return an Object (RORO) pattern.
+
+### JavaScript/TypeScript
+
+- Use "function" keyword for pure functions. Omit semicolons.
+- Use TypeScript for all code. Prefer interfaces over types. Avoid enums, use maps.
+- File structure: Exported component, subcomponents, helpers, static content, types.
+- Avoid unnecessary curly braces in conditional statements.
+- For single-line statements in conditionals, omit curly braces.
+- Use concise, one-line syntax for simple conditional statements (e.g., if (condition) doSomething()).
+
+### Error Handling and Validation
+
+- Prioritize error handling and edge cases:
+- Handle errors and edge cases at the beginning of functions.
+- Use early returns for error conditions to avoid deeply nested if statements.
+- Place the happy path last in the function for improved readability.
+- Avoid unnecessary else statements; use if-return pattern instead.
+- Use guard clauses to handle preconditions and invalid states early.
+- Implement proper error logging and user-friendly error messages.
+- Consider using custom error types or error factories for consistent error handling.
+- Model expected errors as return values in async handlers; reserve exceptions for unexpected errors.
+- Validate inputs with Zod schemas at the boundaries of your app.
+
+### React (SPA)
+
+- Use functional components and TypeScript interfaces.
+- Use declarative JSX.
+- Use function, not const, for components.
+- Routing: Use React Router v6; colocate route components under `src/routes` when practical.
+- Data fetching and caching: Use TanStack Query (`useQuery`, `useMutation`, query keys, and invalidation).
+- Forms: Use React Hook Form with Zod resolvers for validation.
+- UI: Use Shadcn UI components (built on Radix). Style with Tailwind CSS and Tailwind Aria utilities.
+- Implement responsive, mobile-first design with Tailwind.
+- Place static content and interfaces at file end.
+- Use content variables for static content outside render functions.
+- Minimize `useEffect` and `useState`; derive state and prefer memoized selectors.
+- Wrap lazily loaded routes/components in `Suspense` with a lightweight fallback.
+- Code-splitting: Use `React.lazy` and dynamic imports for non-critical screens.
+- Optimize images: Prefer WebP/AVIF when available, include width/height, and lazy-load.
+- Error boundaries: Use an `ErrorBoundary` component for unexpected errors.
+- Keep services in `src/services/` and throw user-friendly errors that TanStack Query can surface.
+
+### Key Conventions
+
+1. Rely on URL state via React Router when appropriate.
+2. Prioritize Web Vitals (LCP, CLS, FID).
+3. Keep components small and focused; avoid global state unless necessary.
+
+- Prefer local/component state and query caches over global stores; introduce lightweight state libraries only when needed.
+
+Refer to React, React Router, TanStack Query, React Hook Form, Zod, and Shadcn documentation for best practices.

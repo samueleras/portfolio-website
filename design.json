@@ -1,0 +1,124 @@
+{
+  "designSystem": {
+    "style": {
+      "colorPalette": {
+        "primary": "#6E3C6F",
+        "secondary": "#2C2B2E",
+        "accent": "#BFA9D2",
+        "highlight": "#F4E1F7",
+        "textPrimary": "#FFFFFF",
+        "textSecondary": "#CFCFCF"
+      },
+      "typography": {
+        "primaryFont": "'Poppins', sans-serif",
+        "headingWeight": "700",
+        "bodyWeight": "400",
+        "highlightWeight": "600",
+        "fontSizes": {
+          "h1": "3rem",
+          "h2": "2rem",
+          "h3": "1.5rem",
+          "body": "1rem",
+          "small": "0.875rem"
+        }
+      },
+      "shapes": {
+        "borderRadius": "8px",
+        "avatarShape": "circle",
+        "cardRadius": "10px"
+      },
+      "illustrationStyle": {
+        "type": "flat vector",
+        "shading": "minimal soft shadows",
+        "coloring": "solid fills with subtle gradients",
+        "lineWeight": "medium"
+      },
+      "icons": {
+        "style": "minimal outline or solid flat",
+        "socialIcons": "monochrome white or light grey"
+      },
+      "lightingEffects": {
+        "spotlight": true,
+        "direction": "top-down",
+        "shadowIntensity": "soft"
+      }
+    },
+    "layout": {
+      "gridSystem": {
+        "columns": 12,
+        "gutter": "24px",
+        "maxWidth": "1200px"
+      },
+      "sections": [
+        {
+          "name": "hero",
+          "layout": "split",
+          "splitRatio": "50-50",
+          "left": "illustration with computer/desk scene",
+          "right": "intro text and CTA",
+          "background": "dual-tone split (dark on left, purple on right)"
+        },
+        {
+          "name": "writing",
+          "layout": "cardGrid",
+          "cards": {
+            "style": "outlined window-frame mockups",
+            "columns": 3,
+            "spacing": "32px"
+          },
+          "background": "solid purple"
+        },
+        {
+          "name": "speaking",
+          "layout": "twoColumn",
+          "left": "text introduction + link",
+          "right": "photo framed with floating label",
+          "subsections": [
+            {
+              "type": "workshop/talk",
+              "style": "horizontal card",
+              "divider": "thin line with label"
+            }
+          ],
+          "background": "solid dark grey"
+        },
+        {
+          "name": "contact",
+          "layout": "sideBySide",
+          "left": "contact text and social icons",
+          "right": "avatar illustration",
+          "background": "split black/purple"
+        }
+      ]
+    },
+    "components": {
+      "buttons": {
+        "primary": {
+          "background": "transparent",
+          "border": "2px solid white",
+          "textColor": "#FFFFFF",
+          "hoverEffect": "slight scale-up with lighter border"
+        }
+      },
+      "cards": {
+        "windowMockup": {
+          "headerHeight": "24px",
+          "border": "1px solid white",
+          "cornerRadius": "8px",
+          "background": "transparent",
+          "textColor": "#FFFFFF"
+        }
+      },
+      "links": {
+        "style": "underline on hover",
+        "color": "#FFFFFF",
+        "hoverColor": "#BFA9D2"
+      }
+    },
+    "animations": {
+      "textReveal": "fade-in-up",
+      "cardHover": "scale-up slight shadow",
+      "spotlightFade": "slow pulsing light"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-secondary text-textPrimary font-poppins antialiased;
+  }
+  a {
+    @apply underline-offset-4 hover:underline;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-[8px] border-2 border-white px-5 py-2 text-textPrimary transition-transform hover:scale-[1.02];
+  }
+  .card-window {
+    @apply rounded-[10px] border border-white/60 bg-transparent p-4 text-textPrimary shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset];
+  }
+}
