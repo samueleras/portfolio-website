@@ -26,7 +26,7 @@ export function BackToTop() {
         (isVisible ? "opacity-100" : "pointer-events-none opacity-0")
       }
     >
-      ↑ nach oben
+      ↑
     </button>
   );
 }
