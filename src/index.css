@@ -12,6 +12,10 @@
   a {
     @apply underline-offset-4 hover:underline;
   }
+  /* Fix scroll offset for anchor links */
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
 }
 
 @layer components {
