@@ -11,9 +11,7 @@ export function Header() {
           <a href="#skills">Skills</a>
           <a href="#projects">Projekte</a>
           <a href="#career">Werdegang</a>
-          <a href="#contact" className="btn-primary">
-            Kontakt
-          </a>
+          <a href="#contact">Kontakt</a>
         </nav>
       </div>
     </header>
