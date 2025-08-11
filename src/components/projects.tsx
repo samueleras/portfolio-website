@@ -2,16 +2,31 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
+import { useTheme } from "./theme-provider";
 
 export function Projects() {
+  const { theme } = useTheme();
+
+  // Theme-specific gradient colors
+  const gradientColors =
+    theme === "dark"
+      ? "bg-[radial-gradient(120%_120%_at_10%_-10%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)]"
+      : "bg-[radial-gradient(120%_120%_at_10%_-10%,#e8d5f0_0%,#f8f9fa_50%,#ffffff_100%)]";
+
   return (
     <section
       id="projects"
-      className="min-h-[calc(100vh-4rem)] bg-[radial-gradient(120%_120%_at_10%_-10%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)] py-12"
+      className={`min-h-[calc(100vh-4rem)] ${gradientColors} py-12`}
     >
       <div className="container mx-auto grid min-h-[calc(100vh-4rem)] items-start gap-10 px-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">Projekte</h2>
+          <h2
+            className={`text-2xl font-semibold ${
+              theme === "dark" ? "text-white" : "text-gray-900"
+            }`}
+          >
+            Projekte
+          </h2>
           <div className="hidden h-90 w-90 md:block">
             <Lottie animationData={buildProduct} loop className="h-90 w-90" />
           </div>
@@ -36,8 +51,20 @@ export function Projects() {
                 />
               </div>
               <header className="justify-self-center text-center md:text-left mt-4">
-                <h3 className="text-xl font-semibold">{p.title}</h3>
-                <p className="text-textSecondary">{p.description}</p>
+                <h3
+                  className={`text-xl font-semibold ${
+                    theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  className={
+                    theme === "dark" ? "text-textSecondary" : "text-gray-600"
+                  }
+                >
+                  {p.description}
+                </p>
               </header>
             </article>
           ))}
