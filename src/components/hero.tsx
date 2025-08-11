@@ -3,6 +3,9 @@ import me from "../assets/me.webp";
 import deskLamp from "@/assets/lampe.png";
 import deskLampAus from "@/assets/lampeAus.png";
 import lightBeam from "@/assets/light-beam.svg";
+import moonAnimation from "@/assets/moonAnimation.json";
+import sunAnimation from "@/assets/sunAnimation.json";
+import Lottie from "lottie-react";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
 
@@ -25,6 +28,16 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] bg-white">
+      {/* Moon/Sun Animation - Top Right */}
+      <div className="absolute right-16 top-16 z-10">
+        <Lottie
+          animationData={theme === "dark" ? moonAnimation : sunAnimation}
+          loop={false}
+          className="h-48 w-48 opacity-80 cursor-pointer transition-opacity hover:opacity-100"
+          onClick={toggleTheme}
+        />
+      </div>
+
       {/* Mobile layout */}
       <div
         className={`relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8 px-4 xl:hidden ${gradientColors}`}
@@ -85,13 +98,17 @@ export function Hero() {
           <img
             src={isLampOn ? deskLamp : deskLampAus}
             alt="Desk lamp"
-            className="drop-shadow-lg cursor-pointer transition-opacity hover:opacity-80"
+            className="drop-shadow-lg transition-opacity"
             style={{
               height: "120vh",
               width: "auto",
               objectFit: "contain",
               maxWidth: "none",
             }}
+          />
+          {/* Transparent click area at the right end of the lamp */}
+          <div
+            className="absolute right-0 bottom-0 h-[60vh] w-16 cursor-pointer transition-opacity hover:opacity-80 bg-red-500"
             onClick={handleLampClick}
           />
         </div>
