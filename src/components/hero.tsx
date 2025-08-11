@@ -6,11 +6,13 @@ import lightBeam from "@/assets/light-beam.svg";
 import { useTheme } from "./theme-provider";
 
 export function Hero() {
-  const [isLampOn, setIsLampOn] = React.useState(true);
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-  const toggleLamp = () => {
-    setIsLampOn(!isLampOn);
+  // Lamp state is now synced with theme
+  const isLampOn = theme === "dark";
+
+  const handleLampClick = () => {
+    toggleTheme();
   };
 
   // Theme-specific gradient colors
@@ -88,7 +90,7 @@ export function Hero() {
               objectFit: "contain",
               maxWidth: "none",
             }}
-            onClick={toggleLamp}
+            onClick={handleLampClick}
           />
         </div>
 
