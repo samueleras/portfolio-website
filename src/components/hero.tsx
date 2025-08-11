@@ -19,7 +19,7 @@ export function Hero() {
   const gradientColors =
     theme === "dark"
       ? "bg-[radial-gradient(130%_140%_at_10%_125%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)]"
-      : "bg-[radial-gradient(130%_140%_at_10%_125%,#e8d5f0_0%,#f8f9fa_50%,#ffffff_100%)]";
+      : "bg-[radial-gradient(130%_140%_at_10%_125%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] bg-white">

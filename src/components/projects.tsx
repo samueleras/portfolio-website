@@ -11,7 +11,7 @@ export function Projects() {
   const gradientColors =
     theme === "dark"
       ? "bg-[radial-gradient(120%_120%_at_10%_-10%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)]"
-      : "bg-[radial-gradient(120%_120%_at_10%_-10%,#e8d5f0_0%,#f8f9fa_50%,#ffffff_100%)]";
+      : "bg-[radial-gradient(120%_120%_at_10%_-10%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
 
   return (
     <section

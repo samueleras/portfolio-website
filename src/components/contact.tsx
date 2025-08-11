@@ -10,7 +10,7 @@ export function Contact() {
   const gradientColors =
     theme === "dark"
       ? "bg-[radial-gradient(140%_110%_at_0%_50%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)]"
-      : "bg-[radial-gradient(140%_110%_at_0%_50%,#e8d5f0_0%,#f8f9fa_50%,#ffffff_100%)]";
+      : "bg-[radial-gradient(140%_110%_at_0%_50%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
 
   return (
     <section id="contact" className={`${gradientColors} py-16`}>
@@ -34,7 +34,11 @@ export function Contact() {
             Schreib mir gern an{" "}
             <a
               href="mailto:sa.eras@gmx.de"
-              className="text-primary hover:underline"
+              className={
+                theme === "dark"
+                  ? "text-textSecondary"
+                  : "text-gray-600 hover:underline"
+              }
             >
               sa.eras@gmx.de
             </a>
