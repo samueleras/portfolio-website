@@ -6,20 +6,23 @@ import { Projects } from "@/components/projects";
 import { Career } from "@/components/career";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export function App() {
   return (
-    <div>
-      <Header />
-      <main>
-        <Hero />
-        <Skills />
-        <Projects />
-        <Career />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
-    </div>
+    <ThemeProvider>
+      <div>
+        <Header />
+        <main>
+          <Hero />
+          <Skills />
+          <Projects />
+          <Career />
+          <Contact />
+        </main>
+        <Footer />
+        <BackToTop />
+      </div>
+    </ThemeProvider>
   );
 }

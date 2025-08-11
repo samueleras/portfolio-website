@@ -3,15 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: 110 60 111;
+    --color-secondary: 44 43 46;
+    --color-accent: 191 169 210;
+    --color-highlight: 244 225 247;
+    --color-text-primary: 255 255 255;
+    --color-text-secondary: 207 207 207;
+  }
+
+  .light {
+    --color-primary: 139 90 140;
+    --color-secondary: 248 249 250;
+    --color-accent: 232 213 240;
+    --color-highlight: 248 240 250;
+    --color-text-primary: 26 26 26;
+    --color-text-secondary: 102 102 102;
+  }
+
+  .dark {
+    --color-primary: 110 60 111;
+    --color-secondary: 44 43 46;
+    --color-accent: 191 169 210;
+    --color-highlight: 244 225 247;
+    --color-text-primary: 255 255 255;
+    --color-text-secondary: 207 207 207;
+  }
+
   html {
     @apply scroll-smooth;
   }
+
   body {
-    @apply bg-secondary text-textPrimary font-poppins antialiased;
+    @apply bg-secondary text-textPrimary font-poppins antialiased transition-colors duration-300;
   }
+
   a {
     @apply underline-offset-4 hover:underline;
   }
+
   /* Fix scroll offset for anchor links */
   section[id] {
     scroll-margin-top: 4rem;
@@ -20,9 +50,10 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-[8px] border-2 border-white px-5 py-2 text-textPrimary transition-transform hover:scale-[1.02];
+    @apply inline-flex items-center gap-2 rounded-[8px] border-2 px-5 py-2 text-textPrimary transition-all duration-300 hover:scale-[1.02];
   }
+
   .card-window {
-    @apply rounded-[10px] border border-white/60 bg-transparent p-4 text-textPrimary shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset];
+    @apply rounded-[10px] border bg-transparent p-4 text-textPrimary shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset] transition-colors duration-300;
   }
 }

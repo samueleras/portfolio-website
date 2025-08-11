@@ -1,0 +1,16 @@
+<svg width="1920" height="1000" viewBox="0 0 1920 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lightGradient" x1="0" y1="0" x2="1920" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" style="stop-color:rgba(253, 223, 71, 0.69)" />
+      <stop offset="0.5" style="stop-color:rgba(251, 191, 36, 0.4)" />
+      <stop offset="1" style="stop-color:rgba(245, 158, 11, 0.2)" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Light beam polygon -->
+  <polygon 
+    points="0,185 1920,370 1920,630 0,815" 
+    fill="url(#lightGradient)"
+    opacity="0.8"
+  />
+</svg>
