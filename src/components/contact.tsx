@@ -2,9 +2,11 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import chatbot from "@/assets/chatbot.json";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Contact() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   // Theme-specific gradient colors
   const gradientColors =
@@ -24,20 +26,20 @@ export function Contact() {
               theme === "dark" ? "text-white" : "text-gray-900"
             }`}
           >
-            Kontakt
+            {t("contact.title")}
           </h2>
           <p
             className={
               theme === "dark" ? "text-textSecondary" : "text-gray-600"
             }
           >
-            Schreib mir gern an{" "}
+            {t("contact.description")}{" "}
             <a
               href="mailto:sa.eras@gmx.de"
               className={
                 theme === "dark"
                   ? "text-textSecondary"
-                  : "text-gray-600 hover:underline"
+                  : "text-primary hover:underline"
               }
             >
               sa.eras@gmx.de

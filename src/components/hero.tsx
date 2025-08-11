@@ -4,9 +4,11 @@ import deskLamp from "@/assets/lampe.png";
 import deskLampAus from "@/assets/lampeAus.png";
 import lightBeam from "@/assets/light-beam.svg";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Hero() {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   // Lamp state is now synced with theme
   const isLampOn = theme === "dark";
@@ -47,28 +49,28 @@ export function Hero() {
               theme === "dark" ? "text-white/80" : "text-gray-700/80"
             }`}
           >
-            Hi, I am
+            {t("hero.greeting")}
           </p>
           <h1
             className={`text-4xl font-extrabold leading-[1.1] ${
               theme === "dark" ? "text-white" : "text-gray-900"
             }`}
           >
-            Samuel
+            {t("hero.title")}
           </h1>
           <p
             className={`max-w-xl ${
               theme === "dark" ? "text-white/80" : "text-gray-700/80"
             }`}
           >
-            Front-end Developer / UI Designer
+            {t("hero.subtitle")}
           </p>
           <div className="mt-2 flex gap-4 justify-center">
             <a href="#projects" className="btn-primary">
-              Projekte ansehen
+              {t("hero.projectsButton")}
             </a>
             <a href="#contact" className="btn-primary">
-              Kontakt
+              {t("hero.contactButton")}
             </a>
           </div>
         </div>
@@ -120,28 +122,28 @@ export function Hero() {
                   theme === "dark" ? "text-white" : "text-gray-700"
                 }`}
               >
-                Hi, I am
+                {t("hero.greeting")}
               </p>
               <h1
                 className={`text-4xl font-extrabold leading-[1.1] md:text-6xl lg:text-7xl ${
                   theme === "dark" ? "text-white" : "text-gray-900"
                 }`}
               >
-                Samuel
+                {t("hero.title")}
               </h1>
               <p
                 className={`max-w-xl ${
                   theme === "dark" ? "text-white/80" : "text-gray-700/80"
                 }`}
               >
-                Front-end Developer / UI Designer
+                {t("hero.subtitle")}
               </p>
               <div className="mt-2 flex gap-4">
                 <a href="#projects" className="btn-primary whitespace-nowrap">
-                  Projekte ansehen
+                  {t("hero.projectsButton")}
                 </a>
                 <a href="#contact" className="btn-primary whitespace-nowrap">
-                  Kontakt
+                  {t("hero.contactButton")}
                 </a>
               </div>
             </div>

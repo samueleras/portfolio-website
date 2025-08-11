@@ -1,9 +1,12 @@
 import * as React from "react";
 import { ThemeToggle } from "./theme-toggle";
+import { LanguageToggle } from "./language-toggle";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Header() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <header
@@ -27,10 +30,11 @@ export function Header() {
             theme === "dark" ? "text-textSecondary" : "text-gray-600"
           }`}
         >
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projekte</a>
-          <a href="#career">Werdegang</a>
-          <a href="#contact">Kontakt</a>
+          <a href="#skills">{t("nav.skills")}</a>
+          <a href="#projects">{t("nav.projects")}</a>
+          <a href="#career">{t("nav.career")}</a>
+          <a href="#contact">{t("nav.contact")}</a>
+          <LanguageToggle />
           <ThemeToggle />
         </nav>
       </div>

@@ -7,22 +7,25 @@ import { Career } from "@/components/career";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/components/language-provider";
 
 export function App() {
   return (
-    <ThemeProvider>
-      <div>
-        <Header />
-        <main>
-          <Hero />
-          <Skills />
-          <Projects />
-          <Career />
-          <Contact />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <div>
+          <Header />
+          <main>
+            <Hero />
+            <Skills />
+            <Projects />
+            <Career />
+            <Contact />
+          </main>
+          <Footer />
+          <BackToTop />
+        </div>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }

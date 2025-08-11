@@ -2,9 +2,11 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import growthAnimation from "@/assets/growth.json";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Career() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <>
@@ -18,7 +20,7 @@ export function Career() {
                   theme === "dark" ? "text-textPrimary" : "text-gray-900"
                 }`}
               >
-                Berufserfahrung
+                {t("career.experience.title")}
               </h2>
               <ul className="mt-4 grid gap-4">
                 {CAREER.map((item) => (
@@ -44,7 +46,7 @@ export function Career() {
                         theme === "dark" ? "text-textPrimary" : "text-gray-900"
                       }`}
                     >
-                      {item.role} – {item.org}
+                      {t(item.roleKey)} – {t(item.orgKey)}
                     </p>
                   </li>
                 ))}
@@ -56,7 +58,7 @@ export function Career() {
                   theme === "dark" ? "text-textPrimary" : "text-gray-900"
                 }`}
               >
-                Bildungsweg
+                {t("career.education.title")}
               </h2>
               <ul className="mt-4 grid gap-4">
                 {EDUCATION.map((item) => (
@@ -82,7 +84,7 @@ export function Career() {
                         theme === "dark" ? "text-textPrimary" : "text-gray-900"
                       }`}
                     >
-                      {item.degree} – {item.org}
+                      {t(item.degreeKey)} – {t(item.orgKey)}
                     </p>
                   </li>
                 ))}
@@ -105,25 +107,43 @@ export function Career() {
 
 interface CareerItem {
   when: string;
-  org: string;
-  role: string;
+  orgKey: string;
+  roleKey: string;
 }
+
 const CAREER: CareerItem[] = [
-  { when: "2024 – heute", org: "Freelance", role: "Webentwickler" },
-  { when: "2022 – 2024", org: "Tech Co.", role: "Frontend Developer" },
-  { when: "2020 – 2022", org: "Startup", role: "Junior Developer" },
+  {
+    when: "2024 – heute",
+    orgKey: "career.freelance.org",
+    roleKey: "career.freelance.role",
+  },
+  {
+    when: "2022 – 2024",
+    orgKey: "career.tech.org",
+    roleKey: "career.tech.role",
+  },
+  {
+    when: "2020 – 2022",
+    orgKey: "career.startup.org",
+    roleKey: "career.startup.role",
+  },
 ];
 
 interface EducationItem {
   when: string;
-  org: string;
-  degree: string;
+  orgKey: string;
+  degreeKey: string;
 }
+
 const EDUCATION: EducationItem[] = [
-  { when: "2018 – 2020", org: "FH Musterstadt", degree: "M.Sc. Informatik" },
+  {
+    when: "2018 – 2020",
+    orgKey: "career.master.org",
+    degreeKey: "career.master.degree",
+  },
   {
     when: "2015 – 2018",
-    org: "Uni Beispiel",
-    degree: "B.Sc. Medieninformatik",
+    orgKey: "career.bachelor.org",
+    degreeKey: "career.bachelor.degree",
   },
 ];

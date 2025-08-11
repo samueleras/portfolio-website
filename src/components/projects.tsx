@@ -3,9 +3,11 @@ import Lottie from "lottie-react";
 import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Projects() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   // Theme-specific gradient colors
   const gradientColors =
@@ -25,7 +27,7 @@ export function Projects() {
               theme === "dark" ? "text-white" : "text-gray-900"
             }`}
           >
-            Projekte
+            {t("projects.title")}
           </h2>
           <div className="hidden h-90 w-90 md:block">
             <Lottie animationData={buildProduct} loop className="h-90 w-90" />
@@ -44,7 +46,7 @@ export function Projects() {
               <div className="justify-self-center">
                 <img
                   src={mockup}
-                  alt={`${p.title} mockup`}
+                  alt={`${t(p.titleKey)} mockup`}
                   className="w-[500px] max-w-full rounded-[10px]"
                   loading="lazy"
                   decoding="async"
@@ -56,14 +58,14 @@ export function Projects() {
                     theme === "dark" ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  {p.title}
+                  {t(p.titleKey)}
                 </h3>
                 <p
                   className={
                     theme === "dark" ? "text-textSecondary" : "text-gray-600"
                   }
                 >
-                  {p.description}
+                  {t(p.descriptionKey)}
                 </p>
               </header>
             </article>
@@ -76,30 +78,29 @@ export function Projects() {
 
 interface Project {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
+
 const PROJECTS: Project[] = [
   {
     id: "p1",
-    title: "E‑Commerce Storefront",
-    description:
-      "Responsive Storefront mit Produktliste, Filtern und Warenkorb.",
+    titleKey: "projects.ecommerce.title",
+    descriptionKey: "projects.ecommerce.description",
   },
   {
     id: "p2",
-    title: "SaaS Dashboard",
-    description:
-      "Analytics-Dashboard mit Diagrammen, Filtern und Einstellungen.",
+    titleKey: "projects.saas.title",
+    descriptionKey: "projects.saas.description",
   },
   {
     id: "p3",
-    title: "Marketing Site",
-    description: "SEO-freundliche Landingpages mit Blog und Kontaktformular.",
+    titleKey: "projects.marketing.title",
+    descriptionKey: "projects.marketing.description",
   },
   {
     id: "p4",
-    title: "Portfolio Microsite",
-    description: "Kleine, performante Microsite mit Fokus auf Typografie.",
+    titleKey: "projects.portfolio.title",
+    descriptionKey: "projects.portfolio.description",
   },
 ];

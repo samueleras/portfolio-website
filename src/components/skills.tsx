@@ -3,9 +3,11 @@ import * as React from "react";
 import testingTechAnimation from "../assets/Testing Tech - Colour.json";
 import Lottie from "lottie-react";
 import { useTheme } from "./theme-provider";
+import { useLanguage } from "./language-provider";
 
 export function Skills() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   const skills = [
     "React",
@@ -38,7 +40,7 @@ export function Skills() {
               theme === "dark" ? "text-textPrimary" : "text-gray-900"
             }`}
           >
-            Skills
+            {t("skills.title")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-3">
             {skills.map((s) => (
