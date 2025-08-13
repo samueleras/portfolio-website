@@ -9,14 +9,16 @@ export function Skills() {
   const { theme } = useTheme();
   const { t } = useLanguage();
 
-  const skills = [
+  const frameworks = [
     "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Node.js",
-    "REST/GraphQL",
-    "Accessibility",
+    "Express.js",
+    "FastAPI",
+    "LangChain / LangGraph",
   ];
+
+  const languages = ["JavaScript", "TypeScript", "Java", "Python", "SQL"];
+
+  const misc = ["Git", "Docker"];
 
   return (
     <section
@@ -42,20 +44,81 @@ export function Skills() {
           >
             {t("skills.title")}
           </h2>
-          <ul className="mt-4 flex flex-wrap gap-3">
-            {skills.map((s) => (
-              <li
-                key={s}
-                className={`rounded-[8px] border px-3 py-2 text-sm ${
-                  theme === "dark"
-                    ? "border-white/40 text-textSecondary"
-                    : "border-gray-300 text-gray-600"
-                }`}
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
+
+          {/* Frameworks */}
+          <div className="mt-6">
+            <h3
+              className={`text-lg font-medium mb-3 ${
+                theme === "dark" ? "text-textPrimary" : "text-gray-900"
+              }`}
+            >
+              Frameworks
+            </h3>
+            <ul className="flex flex-wrap gap-3">
+              {frameworks.map((skill) => (
+                <li
+                  key={skill}
+                  className={`rounded-[8px] border px-3 py-2 text-sm ${
+                    theme === "dark"
+                      ? "border-white/40 text-textSecondary"
+                      : "border-gray-300 text-gray-600"
+                  }`}
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Languages */}
+          <div className="mt-6">
+            <h3
+              className={`text-lg font-medium mb-3 ${
+                theme === "dark" ? "text-textPrimary" : "text-gray-900"
+              }`}
+            >
+              Languages
+            </h3>
+            <ul className="flex flex-wrap gap-3">
+              {languages.map((skill) => (
+                <li
+                  key={skill}
+                  className={`rounded-[8px] border px-3 py-2 text-sm ${
+                    theme === "dark"
+                      ? "border-white/40 text-textSecondary"
+                      : "border-gray-300 text-gray-600"
+                  }`}
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Misc */}
+          <div className="mt-6">
+            <h3
+              className={`text-lg font-medium mb-3 ${
+                theme === "dark" ? "text-textPrimary" : "text-gray-900"
+              }`}
+            >
+              Tools & Misc
+            </h3>
+            <ul className="flex flex-wrap gap-3">
+              {misc.map((skill) => (
+                <li
+                  key={skill}
+                  className={`rounded-[8px] border px-3 py-2 text-sm ${
+                    theme === "dark"
+                      ? "border-white/40 text-textSecondary"
+                      : "border-gray-300 text-gray-600"
+                  }`}
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
