@@ -16,7 +16,15 @@ export function Skills() {
     "LangChain / LangGraph",
   ];
 
-  const languages = ["JavaScript", "TypeScript", "Java", "Python", "SQL"];
+  const languages = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "Python",
+    "SQL",
+  ];
 
   const misc = ["Git", "Docker"];
 
