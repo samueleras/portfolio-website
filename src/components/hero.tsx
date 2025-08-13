@@ -29,11 +29,11 @@ export function Hero() {
   return (
     <section className="relative min-h-[calc(100vh-4rem)] bg-white">
       {/* Moon/Sun Animation - Top Right */}
-      <div className="absolute right-16 top-16 z-10">
+      <div className="absolute right-16 top-16 z-10 hidden xl:block">
         <Lottie
           animationData={theme === "dark" ? moonAnimation : sunAnimation}
           loop={false}
-          className="h-48 w-48 opacity-80 cursor-pointer transition-opacity hover:opacity-100"
+          className="h-[25vh] w-[25vh] opacity-80 cursor-pointer transition-opacity hover:opacity-100"
           onClick={toggleTheme}
         />
       </div>
