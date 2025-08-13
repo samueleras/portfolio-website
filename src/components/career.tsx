@@ -3,18 +3,26 @@ import Lottie from "lottie-react";
 import growthAnimation from "@/assets/growth.json";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Career() {
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { elementRef, isVisible } = useScrollAnimation();
 
   return (
     <>
-      <section id="career" className="bg-secondary">
+      <section id="career" ref={elementRef} className="bg-secondary">
         <div className="container mx-auto grid items-center gap-10 px-4 py-12 lg:grid-cols-2">
           {/* Left: content indented */}
           <div>
-            <div className="md:pl-16">
+            <div
+              className={`md:pl-16 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
+            >
               <h2
                 className={`text-2xl font-semibold ${
                   theme === "dark" ? "text-textPrimary" : "text-gray-900"
@@ -26,11 +34,11 @@ export function Career() {
                 {CAREER.map((item) => (
                   <li
                     key={item.when}
-                    className={`rounded-[10px] border p-4 ${
+                    className={`rounded-[10px] border p-4 transition-all duration-700 ${
                       theme === "dark"
                         ? "border-white/15"
                         : "border-gray-200 bg-white/50"
-                    }`}
+                    } ${isVisible ? "opacity-100" : "opacity-0"}`}
                   >
                     <p
                       className={`text-sm ${
@@ -61,7 +69,13 @@ export function Career() {
                 ))}
               </ul>
             </div>
-            <div className="md:pl-16 mt-8">
+            <div
+              className={`md:pl-16 mt-8 transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
+            >
               <h2
                 className={`text-2xl font-semibold ${
                   theme === "dark" ? "text-textPrimary" : "text-gray-900"
@@ -73,11 +87,11 @@ export function Career() {
                 {EDUCATION.map((item) => (
                   <li
                     key={item.when}
-                    className={`rounded-[10px] border p-4 ${
+                    className={`rounded-[10px] border p-4 transition-all duration-700 ${
                       theme === "dark"
                         ? "border-white/15"
                         : "border-gray-200 bg-white/50"
-                    }`}
+                    } ${isVisible ? "opacity-100" : "opacity-0"}`}
                   >
                     <p
                       className={`text-sm ${
@@ -110,7 +124,11 @@ export function Career() {
             </div>
           </div>
           {/* Right: JSON animation */}
-          <div className="hidden justify-center lg:flex">
+          <div
+            className={`hidden justify-center lg:flex transition-all duration-1000 delay-700 ${
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+            }`}
+          >
             <Lottie
               animationData={growthAnimation}
               loop

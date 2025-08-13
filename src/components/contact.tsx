@@ -3,10 +3,12 @@ import Lottie from "lottie-react";
 import chatbot from "@/assets/chatbot.json";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Contact() {
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { elementRef, isVisible } = useScrollAnimation();
 
   // Theme-specific gradient colors
   const gradientColors =
@@ -15,12 +17,24 @@ export function Contact() {
       : "bg-[radial-gradient(140%_110%_at_0%_50%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
 
   return (
-    <section id="contact" className={`${gradientColors} py-16`}>
+    <section
+      id="contact"
+      ref={elementRef}
+      className={`${gradientColors} py-16`}
+    >
       <div className="container mx-auto grid items-center gap-20 px-4 md:grid-cols-2">
-        <div className="flex items-center justify-center">
+        <div
+          className={`flex items-center justify-center transition-all duration-1000 ${
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          }`}
+        >
           <Lottie animationData={chatbot} loop className="h-128 w-128" />
         </div>
-        <div>
+        <div
+          className={`transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
+          }`}
+        >
           <h2
             className={`text-2xl font-semibold ${
               theme === "dark" ? "text-white" : "text-gray-900"

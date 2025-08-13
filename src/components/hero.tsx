@@ -8,10 +8,12 @@ import sunAnimation from "@/assets/sunAnimation.json";
 import Lottie from "lottie-react";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Hero() {
   const { theme, toggleTheme } = useTheme();
   const { t } = useLanguage();
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.3 });
 
   // Lamp state is now synced with theme
   const isLampOn = theme === "dark";
@@ -27,9 +29,16 @@ export function Hero() {
       : "bg-[radial-gradient(130%_140%_at_10%_125%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] bg-white">
+    <section
+      ref={elementRef}
+      className="relative min-h-[calc(100vh-4rem)] bg-white"
+    >
       {/* Moon/Sun Animation - Top Right */}
-      <div className="absolute right-16 top-16 z-10 hidden xl:block">
+      <div
+        className={`absolute right-16 top-16 z-10 transition-all duration-1000 delay-700 ${
+          isVisible ? "opacity-80 scale-100" : "opacity-0 scale-75"
+        }`}
+      >
         <Lottie
           animationData={theme === "dark" ? moonAnimation : sunAnimation}
           loop={false}
@@ -43,7 +52,11 @@ export function Hero() {
         className={`relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-8 px-4 xl:hidden ${gradientColors}`}
       >
         {/* Circular portrait image */}
-        <div className="flex justify-center">
+        <div
+          className={`flex justify-center transition-all duration-1000 ${
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          }`}
+        >
           <div className="aspect-square w-48 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
             <img
               src={me}
@@ -56,7 +69,11 @@ export function Hero() {
         </div>
 
         {/* Text content */}
-        <div className="grid gap-4 text-center">
+        <div
+          className={`grid gap-4 text-center transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <p
             className={`text-lg ${
               theme === "dark" ? "text-white/80" : "text-gray-700/80"
@@ -117,12 +134,17 @@ export function Hero() {
         <div className="flex gap-10 relative ml-10">
           <div className="flex items-center justify-center gap-10">
             {/* Left: circular portrait image */}
-            <div className="flex justify-center">
+            <div
+              className={`flex justify-center transition-all duration-1000 ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+              }`}
+            >
               <div className="aspect-square w-64 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl">
                 <img
                   src={me}
                   alt="Samuel portrait"
                   className="h-full w-full object-cover"
+                  style={{ objectPosition: "center 15%" }}
                   loading="eager"
                   decoding="async"
                 />
@@ -130,9 +152,11 @@ export function Hero() {
             </div>
             {/* Right: text content */}
             <div
-              className={`grid gap-4 ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className={`grid gap-4 transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-20"
+              } ${theme === "dark" ? "text-white" : "text-gray-900"}`}
             >
               <p
                 className={`text-lg ${

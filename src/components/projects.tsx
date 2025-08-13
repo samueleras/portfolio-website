@@ -4,10 +4,12 @@ import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Projects() {
   const { theme } = useTheme();
   const { t } = useLanguage();
+  const { elementRef, isVisible } = useScrollAnimation();
 
   // Theme-specific gradient colors
   const gradientColors =
@@ -18,10 +20,17 @@ export function Projects() {
   return (
     <section
       id="projects"
+      ref={elementRef}
       className={`min-h-[calc(100vh-4rem)] ${gradientColors} py-12`}
     >
       <div className="container mx-auto grid min-h-[calc(100vh-4rem)] items-start gap-10 px-4">
-        <div className="flex items-center justify-between">
+        <div
+          className={`flex items-center justify-between transition-all duration-1000 ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
+        >
           <h2
             className={`text-2xl font-semibold ${
               theme === "dark" ? "text-white" : "text-gray-900"
@@ -36,43 +45,68 @@ export function Projects() {
 
         <div className="grid gap-20 mt-12">
           {PROJECTS.map((p, idx) => (
-            <article
+            <ProjectCard
               key={p.id}
-              className={
-                "grid items-center gap-6 md:grid-cols-2 " +
-                (idx % 2 === 1 ? "" : "md:[&>div:first-child]:order-2")
-              }
-            >
-              <div className="justify-self-center">
-                <img
-                  src={mockup}
-                  alt={`${t(p.titleKey)} mockup`}
-                  className="w-[500px] max-w-full rounded-[10px]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <header className="justify-self-center text-center md:text-left mt-4">
-                <h3
-                  className={`text-xl font-semibold ${
-                    theme === "dark" ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {t(p.titleKey)}
-                </h3>
-                <p
-                  className={
-                    theme === "dark" ? "text-textSecondary" : "text-gray-600"
-                  }
-                >
-                  {t(p.descriptionKey)}
-                </p>
-              </header>
-            </article>
+              project={p}
+              index={idx}
+              theme={theme}
+              t={t}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  theme: string;
+  t: (key: string) => string;
+}
+
+function ProjectCard({ project, index, theme, t }: ProjectCardProps) {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
+  return (
+    <article
+      ref={elementRef}
+      className={`grid items-center gap-6 md:grid-cols-2 transition-all duration-1000 ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : index % 2 === 0
+          ? "opacity-0 -translate-x-20"
+          : "opacity-0 translate-x-20"
+      } ${
+        "md:grid-cols-2 " +
+        (index % 2 === 1 ? "" : "md:[&>div:first-child]:order-2")
+      }`}
+    >
+      <div className="justify-self-center">
+        <img
+          src={mockup}
+          alt={`${t(project.titleKey)} mockup`}
+          className="w-[500px] max-w-full rounded-[10px] transition-transform duration-500 hover:scale-105"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <header className="justify-self-center text-center md:text-left mt-4">
+        <h3
+          className={`text-xl font-semibold ${
+            theme === "dark" ? "text-white" : "text-gray-900"
+          }`}
+        >
+          {t(project.titleKey)}
+        </h3>
+        <p
+          className={theme === "dark" ? "text-textSecondary" : "text-gray-600"}
+        >
+          {t(project.descriptionKey)}
+        </p>
+      </header>
+    </article>
   );
 }
 
