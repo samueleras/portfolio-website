@@ -108,7 +108,7 @@ export function Hero() {
           />
           {/* Transparent click area at the right end of the lamp */}
           <div
-            className="absolute right-0 bottom-0 h-[60vh] w-16 cursor-pointer transition-opacity hover:opacity-80 bg-red-500"
+            className="absolute right-0 bottom-0 h-[60vh] w-[17vw] cursor-pointer"
             onClick={handleLampClick}
           />
         </div>
