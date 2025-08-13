@@ -49,16 +49,19 @@ const translations = {
     // Career section
     "career.experience.title": "Berufserfahrung",
     "career.education.title": "Bildungsweg",
-    "career.freelance.role": "Webentwickler",
-    "career.freelance.org": "Freelance",
-    "career.tech.role": "Frontend Developer",
-    "career.tech.org": "Tech Co.",
-    "career.startup.role": "Junior Developer",
-    "career.startup.org": "Startup",
-    "career.master.degree": "M.Sc. Informatik",
-    "career.master.org": "FH Musterstadt",
-    "career.bachelor.degree": "B.Sc. Medieninformatik",
-    "career.bachelor.org": "Uni Beispiel",
+    "career.systemadmin.role": "System Administrator",
+    "career.systemadmin.org": "iinovis GmbH & Co. KG",
+    "career.ausbildung.role":
+      "Ausbildung zum Fachinformatiker für Systemintegration",
+    "career.ausbildung.org": "KPMG IT-Service GmbH",
+    "career.bsc.degree": "B.Sc. (Hons) Computer Science",
+    "career.bsc.org": "Wrexham University",
+    "career.techniker.degree":
+      "Staatlich geprüfter Informatiktechniker & Fachhochschulreife",
+    "career.techniker.org": "Technikerschule München",
+    "career.fachinformatiker.degree": "Fachinformatiker für Systemintegration",
+    "career.fachinformatiker.org":
+      "Städtische Berufsschule für Informationstechnik München",
 
     // Contact section
     "contact.title": "Kontakt",
@@ -99,16 +102,18 @@ const translations = {
     // Career section
     "career.experience.title": "Work Experience",
     "career.education.title": "Education",
-    "career.freelance.role": "Web Developer",
-    "career.freelance.org": "Freelance",
-    "career.tech.role": "Frontend Developer",
-    "career.tech.org": "Tech Co.",
-    "career.startup.role": "Junior Developer",
-    "career.startup.org": "Startup",
-    "career.master.degree": "M.Sc. Computer Science",
-    "career.master.org": "University of Example",
-    "career.bachelor.degree": "B.Sc. Media Informatics",
-    "career.bachelor.org": "University of Sample",
+    "career.systemadmin.role": "System Administrator",
+    "career.systemadmin.org": "iinovis GmbH & Co. KG",
+    "career.ausbildung.role": "IT Specialist Training for System Integration",
+    "career.ausbildung.org": "KPMG IT-Service GmbH",
+    "career.bsc.degree": "B.Sc. (Hons) Computer Science",
+    "career.bsc.org": "Wrexham University",
+    "career.techniker.degree":
+      "State-Certified IT Technician & Technical College Entrance Qualification",
+    "career.techniker.org": "Technikerschule München",
+    "career.fachinformatiker.degree": "IT Specialist for System Integration",
+    "career.fachinformatiker.org":
+      "Städtische Berufsschule für Informationstechnik München",
 
     // Contact section
     "contact.title": "Contact",

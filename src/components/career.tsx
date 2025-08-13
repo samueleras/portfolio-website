@@ -46,7 +46,16 @@ export function Career() {
                         theme === "dark" ? "text-textPrimary" : "text-gray-900"
                       }`}
                     >
-                      {t(item.roleKey)} – {t(item.orgKey)}
+                      {t(item.roleKey)}
+                    </p>
+                    <p
+                      className={`text-sm font-light ${
+                        theme === "dark"
+                          ? "text-textSecondary"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {t(item.orgKey)}
                     </p>
                   </li>
                 ))}
@@ -84,7 +93,16 @@ export function Career() {
                         theme === "dark" ? "text-textPrimary" : "text-gray-900"
                       }`}
                     >
-                      {t(item.degreeKey)} – {t(item.orgKey)}
+                      {t(item.degreeKey)}
+                    </p>
+                    <p
+                      className={`text-sm font-light ${
+                        theme === "dark"
+                          ? "text-textSecondary"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {t(item.orgKey)}
                     </p>
                   </li>
                 ))}
@@ -113,19 +131,14 @@ interface CareerItem {
 
 const CAREER: CareerItem[] = [
   {
-    when: "2024 – heute",
-    orgKey: "career.freelance.org",
-    roleKey: "career.freelance.role",
+    when: "03/2021 – 08/2022",
+    orgKey: "career.systemadmin.org",
+    roleKey: "career.systemadmin.role",
   },
   {
-    when: "2022 – 2024",
-    orgKey: "career.tech.org",
-    roleKey: "career.tech.role",
-  },
-  {
-    when: "2020 – 2022",
-    orgKey: "career.startup.org",
-    roleKey: "career.startup.role",
+    when: "09/2018 – 02/2021",
+    orgKey: "career.ausbildung.org",
+    roleKey: "career.ausbildung.role",
   },
 ];
 
@@ -137,13 +150,18 @@ interface EducationItem {
 
 const EDUCATION: EducationItem[] = [
   {
-    when: "2018 – 2020",
-    orgKey: "career.master.org",
-    degreeKey: "career.master.degree",
+    when: "08/2024 – 07/2025",
+    orgKey: "career.bsc.org",
+    degreeKey: "career.bsc.degree",
   },
   {
-    when: "2015 – 2018",
-    orgKey: "career.bachelor.org",
-    degreeKey: "career.bachelor.degree",
+    when: "09/2022 – 07/2024",
+    orgKey: "career.techniker.org",
+    degreeKey: "career.techniker.degree",
+  },
+  {
+    when: "09/2018 – 02/2021",
+    orgKey: "career.fachinformatiker.org",
+    degreeKey: "career.fachinformatiker.degree",
   },
 ];
