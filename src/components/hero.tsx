@@ -35,7 +35,7 @@ export function Hero() {
     >
       {/* Moon/Sun Animation - Top Right */}
       <div
-        className={`absolute right-16 top-16 z-10 transition-all duration-1000 delay-700 ${
+        className={`absolute right-16 top-16 z-10 transition-all duration-1000 delay-700 hidden xl:block ${
           isVisible ? "opacity-80 scale-100" : "opacity-0 scale-75"
         }`}
       >
