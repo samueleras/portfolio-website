@@ -32,7 +32,7 @@ export function Contact() {
         </div>
         <div
           className={`transition-all duration-1000 delay-300 ${
-            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
           <h2

@@ -111,11 +111,7 @@ function ProjectCard({ project, index, theme, t, onClick }: ProjectCardProps) {
     <article
       ref={elementRef}
       className={`grid items-center gap-6 md:grid-cols-2 transition-all duration-1000 cursor-pointer ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : index % 2 === 0
-          ? "opacity-0 -translate-x-20"
-          : "opacity-0 translate-x-20"
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
       } ${
         "md:grid-cols-2 " +
         (index % 2 === 1 ? "" : "md:[&>div:first-child]:order-2")
