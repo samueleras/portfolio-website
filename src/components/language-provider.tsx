@@ -33,18 +33,18 @@ const translations = {
 
     // Projects section
     "projects.title": "Projekte",
-    "projects.ecommerce.title": "E‑Commerce Storefront",
+    "projects.ecommerce.title": "AI-Integrated Helpdesk",
     "projects.ecommerce.description":
-      "Responsive Storefront mit Produktliste, Filtern und Warenkorb.",
-    "projects.saas.title": "SaaS Dashboard",
+      "Web-App zur automatisierten Problemlösung oder Ticketgenerierung für höhere Helpdesk-Effizienz.",
+    "projects.saas.title": "DreamCars - Car Shop",
     "projects.saas.description":
-      "Analytics-Dashboard mit Diagrammen, Filtern und Einstellungen.",
-    "projects.marketing.title": "Marketing Site",
+      "Responsive Auto-Shop-Plattform mit modernem UI und umfangreichen Filter- und Suchfunktionen.",
+    "projects.marketing.title": "Traveling Salesman Problem Solver",
     "projects.marketing.description":
-      "SEO-freundliche Landingpages mit Blog und Kontaktformular.",
-    "projects.portfolio.title": "Portfolio Microsite",
+      "Anwendung zur Lösung des Traveling-Salesperson-Problems mittels Christofides Algorithmus.",
+    "projects.portfolio.title": "Digital Cookbook",
     "projects.portfolio.description":
-      "Kleine, performante Microsite mit Fokus auf Typografie.",
+      "Web-App zum Erstellen, Speichern und Bewerten eigener Rezepte sowie zum Suchen nach Rezepten anderer.",
 
     // Career section
     "career.experience.title": "Berufserfahrung",
@@ -65,7 +65,7 @@ const translations = {
 
     // Contact section
     "contact.title": "Kontakt",
-    "contact.description": "Schreib mir gern an",
+    "contact.description": "Für Anfragen erreichen Sie mich unter",
   },
   en: {
     // Navigation
@@ -86,18 +86,18 @@ const translations = {
 
     // Projects section
     "projects.title": "Projects",
-    "projects.ecommerce.title": "E‑Commerce Storefront",
+    "projects.ecommerce.title": "AI-Integrated Helpdesk",
     "projects.ecommerce.description":
-      "Responsive storefront with product listing, filters and shopping cart.",
-    "projects.saas.title": "SaaS Dashboard",
+      "Web app for automated problem solving or ticket generation to improve helpdesk efficiency.",
+    "projects.saas.title": "DreamCars - Car Shop",
     "projects.saas.description":
-      "Analytics dashboard with charts, filters and settings.",
-    "projects.marketing.title": "Marketing Site",
+      "Responsive car shop platform with modern UI and extensive filter and search functions.",
+    "projects.marketing.title": "Traveling Salesman Problem Solver",
     "projects.marketing.description":
-      "SEO-friendly landing pages with blog and contact form.",
-    "projects.portfolio.title": "Portfolio Microsite",
+      "Application for solving the Traveling Salesperson Problem using the Christofides algorithm.",
+    "projects.portfolio.title": "Digital Cookbook",
     "projects.portfolio.description":
-      "Small, performant microsite with focus on typography.",
+      "Web app for creating, storing, and rating your own recipes, as well as searching for recipes from others.",
 
     // Career section
     "career.experience.title": "Work Experience",
@@ -117,7 +117,7 @@ const translations = {
 
     // Contact section
     "contact.title": "Contact",
-    "contact.description": "Feel free to write me at",
+    "contact.description": "Feel free to contact me at",
   },
 };
 
