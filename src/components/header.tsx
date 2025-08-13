@@ -29,7 +29,7 @@ export function Header() {
             theme === "dark" ? "text-textPrimary" : "text-gray-900"
           }`}
         >
-          Samuel
+          Samuel Eras
         </a>
 
         {/* Right: Desktop Navigation + Toggles */}
