@@ -131,7 +131,7 @@ function HamburgerMenu({ isOpen, onToggle }: HamburgerMenuProps) {
           className={`absolute right-0 top-16 h-screen w-64 border-l p-4 shadow-lg transition-transform duration-300 ${
             theme === "dark"
               ? "border-white/10 bg-secondary backdrop-blur"
-              : "border-gray-200/50 bg-white backdrop-blur"
+              : "border-gray-300/50 bg-secondary backdrop-blur"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
