@@ -24,7 +24,7 @@ const translations = {
     // Hero section
     "hero.greeting": "Hi, I am",
     "hero.title": "Samuel",
-    "hero.subtitle": "Front-end Developer / UI Designer",
+    "hero.subtitle": "Full-Stack Developer",
     "hero.projectsButton": "Projekte ansehen",
     "hero.contactButton": "Kontakt",
 
@@ -74,7 +74,7 @@ const translations = {
     // Hero section
     "hero.greeting": "Hi, I am",
     "hero.title": "Samuel",
-    "hero.subtitle": "Front-end Developer / UI Designer",
+    "hero.subtitle": "Full-Stack Developer",
     "hero.projectsButton": "View Projects",
     "hero.contactButton": "Contact",
 
