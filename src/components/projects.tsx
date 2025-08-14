@@ -8,8 +8,6 @@ import helpdesk_ticket_pc from "@/assets/helpdesk_ticket_pc.webp";
 import helpdesk_ticket_mobile from "@/assets/helpdesk_ticket_mobile.webp";
 import helpdesk_technicianportal_pc from "@/assets/helpdesk_technicianportal_pc.webp";
 import helpdesk_technicianportal_mobile from "@/assets/helpdesk_technicianportal_mobile.webp";
-import helpdesk_my_tickets_pc from "@/assets/helpdesk_my_tickets_pc.webp";
-import helpdesk_my_tickets_mobile from "@/assets/helpdesk_my_tickets_mobile.webp";
 import helpdesk_ai_chat_pc from "@/assets/helpdesk_ai_chat_pc.webp";
 import helpdesk_ai_chat_mobile from "@/assets/helpdesk_ai_chat_mobile.webp";
 import { useTheme } from "./theme-provider";
@@ -163,6 +161,7 @@ interface ProjectDetail {
   technologies: string[];
   mockup: string;
   images: string[];
+  imageSections?: { title: string; description?: string; images: string[] }[];
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -191,8 +190,35 @@ const PROJECTS: ProjectDetail[] = [
       helpdesk_ticket_mobile,
       helpdesk_technicianportal_pc,
       helpdesk_technicianportal_mobile,
-      helpdesk_my_tickets_pc,
-      helpdesk_my_tickets_mobile,
+    ],
+    imageSections: [
+      {
+        title: "Login & Authentifizierung",
+        description:
+          "Sichere Anmeldung mit JWT-Token und Rollenverwaltung für Benutzer und Techniker",
+        images: [helpdesk_login_pc, helpdesk_login_mobile],
+      },
+      {
+        title: "KI-Chat & Support",
+        description:
+          "Intelligenter Chatbot mit LangChain-Integration für automatische Ticket-Erstellung und Support",
+        images: [helpdesk_ai_chat_pc, helpdesk_ai_chat_mobile],
+      },
+      {
+        title: "Ticket-Management",
+        description:
+          "Umfassendes Ticket-System mit Status-Tracking, Priorisierung und Kategorisierung",
+        images: [helpdesk_ticket_pc, helpdesk_ticket_mobile],
+      },
+      {
+        title: "Techniker-Portal",
+        description:
+          "Spezialisierte Oberfläche für Techniker mit erweiterten Funktionen und Ticket-Zuweisung",
+        images: [
+          helpdesk_technicianportal_pc,
+          helpdesk_technicianportal_mobile,
+        ],
+      },
     ],
     githubUrl: "https://github.com/samueleras/helpdesk-ai",
   },

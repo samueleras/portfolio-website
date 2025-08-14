@@ -15,6 +15,7 @@ interface ProjectDetail {
   descriptionKey: string;
   technologies: string[];
   images: string[];
+  imageSections?: { title: string; description?: string; images: string[] }[];
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -79,7 +80,7 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
             </div>
 
             {/* Project Content */}
-            <div ref={elementRef} className="max-w-4xl mx-auto">
+            <div ref={elementRef} className="container mx-auto">
               {/* Title */}
               <div
                 className={`mb-8 transition-all duration-1000 ${
@@ -248,33 +249,42 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
                     Bildergalerie
                   </h2>
 
-                  {/* Group images in pairs */}
-                  {Array.from(
-                    { length: Math.ceil(project.images.length / 2) },
-                    (_, sectionIndex) => (
-                      <div key={sectionIndex}>
-                        {/* Section Title */}
-                        <h3
-                          className={`text-lg font-medium mb-4 ${
-                            theme === "dark"
-                              ? "text-textSecondary"
-                              : "text-gray-600"
-                          }`}
-                        >
-                          {sectionIndex === 0
-                            ? "Hauptansichten"
-                            : `Ansicht ${sectionIndex + 1}`}
-                        </h3>
+                  {/* Use custom sections if available, otherwise fallback to auto-grouping */}
+                  {project.imageSections
+                    ? // Custom sections
+                      project.imageSections.map((section, sectionIndex) => (
+                        <div key={sectionIndex}>
+                          {/* Section Title */}
+                          <h3
+                            className={`text-lg font-medium mb-2 ${
+                              theme === "dark"
+                                ? "text-textSecondary"
+                                : "text-gray-600"
+                            }`}
+                          >
+                            {section.title}
+                          </h3>
 
-                        {/* Image Pair */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                          {project.images
-                            .slice(sectionIndex * 2, sectionIndex * 2 + 2)
-                            .map((image, imageIndex) => (
+                          {/* Section Description */}
+                          {section.description && (
+                            <p
+                              className={`text-sm mb-4 ${
+                                theme === "dark"
+                                  ? "text-textSecondary/80"
+                                  : "text-gray-500"
+                              }`}
+                            >
+                              {section.description}
+                            </p>
+                          )}
+
+                          {/* Image Grid */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            {section.images.map((image, imageIndex) => (
                               <div
-                                key={sectionIndex * 2 + imageIndex}
+                                key={imageIndex}
                                 className={`rounded-lg transition-all duration-500 delay-${
-                                  900 + (sectionIndex * 2 + imageIndex) * 100
+                                  900 + (sectionIndex * 10 + imageIndex) * 100
                                 } ${
                                   isVisible
                                     ? "opacity-100 scale-100"
@@ -283,29 +293,89 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
                               >
                                 <img
                                   src={image}
-                                  alt={`${t(project.titleKey)} screenshot ${
-                                    sectionIndex * 2 + imageIndex + 1
-                                  }`}
-                                  className="w-full h-80 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                  alt={`${t(project.titleKey)} ${
+                                    section.title
+                                  } ${imageIndex + 1}`}
+                                  className="w-full h-96 xl:h-[28rem] 2xl:h-[32rem] object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
                                   loading="lazy"
                                   onClick={() => handleImageClick(image)}
                                 />
                               </div>
                             ))}
-                        </div>
+                          </div>
 
-                        {/* Divider (except after last section) */}
-                        {sectionIndex <
-                          Math.ceil(project.images.length / 2) - 1 && (
-                          <div
-                            className={`h-px mb-8 ${
-                              theme === "dark" ? "bg-white/20" : "bg-gray-300"
-                            }`}
-                          />
-                        )}
-                      </div>
-                    )
-                  )}
+                          {/* Divider (except after last section) */}
+                          {sectionIndex <
+                            (project.imageSections?.length || 0) - 1 && (
+                            <div
+                              className={`h-px mb-8 ${
+                                theme === "dark" ? "bg-white/20" : "bg-gray-300"
+                              }`}
+                            />
+                          )}
+                        </div>
+                      ))
+                    : // Fallback: Auto-group images in pairs
+                      Array.from(
+                        { length: Math.ceil(project.images.length / 2) },
+                        (_, sectionIndex) => (
+                          <div key={sectionIndex}>
+                            {/* Section Title */}
+                            <h3
+                              className={`text-lg font-medium mb-4 ${
+                                theme === "dark"
+                                  ? "text-textSecondary"
+                                  : "text-gray-600"
+                              }`}
+                            >
+                              {sectionIndex === 0
+                                ? "Hauptansichten"
+                                : `Ansicht ${sectionIndex + 1}`}
+                            </h3>
+
+                            {/* Image Pair */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                              {project.images
+                                .slice(sectionIndex * 2, sectionIndex * 2 + 2)
+                                .map((image, imageIndex) => (
+                                  <div
+                                    key={sectionIndex * 2 + imageIndex}
+                                    className={`rounded-lg transition-all duration-500 delay-${
+                                      900 +
+                                      (sectionIndex * 2 + imageIndex) * 100
+                                    } ${
+                                      isVisible
+                                        ? "opacity-100 scale-100"
+                                        : "opacity-0 scale-75"
+                                    }`}
+                                  >
+                                    <img
+                                      src={image}
+                                      alt={`${t(project.titleKey)} screenshot ${
+                                        sectionIndex * 2 + imageIndex + 1
+                                      }`}
+                                      className="w-full h-96 xl:h-[28rem] 2xl:h-[32rem] object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                      loading="lazy"
+                                      onClick={() => handleImageClick(image)}
+                                    />
+                                  </div>
+                                ))}
+                            </div>
+
+                            {/* Divider (except after last section) */}
+                            {sectionIndex <
+                              Math.ceil(project.images.length / 2) - 1 && (
+                              <div
+                                className={`h-px mb-8 ${
+                                  theme === "dark"
+                                    ? "bg-white/20"
+                                    : "bg-gray-300"
+                                }`}
+                              />
+                            )}
+                          </div>
+                        )
+                      )}
                 </div>
               )}
             </div>
