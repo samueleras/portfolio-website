@@ -94,6 +94,9 @@ const translations = {
     "projectDetail.back": "Zurück",
     "projectDetail.github": "GitHub",
     "projectDetail.liveDemo": "Live Demo",
+    "projectDetail.report": "Projektbericht",
+    "projectDetail.showMore": "Mehr",
+    "projectDetail.showLess": "Weniger",
   },
   en: {
     // Navigation
@@ -174,6 +177,9 @@ const translations = {
     "projectDetail.back": "Back",
     "projectDetail.github": "GitHub",
     "projectDetail.liveDemo": "Live Demo",
+    "projectDetail.report": "Project Report",
+    "projectDetail.showMore": "More",
+    "projectDetail.showLess": "Less",
   },
 };
 

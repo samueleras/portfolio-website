@@ -168,6 +168,7 @@ interface ProjectDetail {
   }[];
   githubUrl?: string;
   liveUrl?: string;
+  reportUrl?: string;
 }
 
 const PROJECTS: ProjectDetail[] = [
@@ -221,6 +222,7 @@ const PROJECTS: ProjectDetail[] = [
       },
     ],
     githubUrl: "https://github.com/samueleras/ai-helpdesk-bachelors-project",
+    reportUrl: "/src/assets/Project Report - Samuel Eras.pdf",
   },
   {
     id: "p2",
