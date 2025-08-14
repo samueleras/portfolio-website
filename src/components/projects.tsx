@@ -2,6 +2,7 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
+import helpdesk_login_mobile from "@/assets/helpdesk_login_mobile.png";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -120,7 +121,7 @@ function ProjectCard({ project, index, theme, t, onClick }: ProjectCardProps) {
     >
       <div className="justify-self-center">
         <img
-          src={mockup}
+          src={project.mockup}
           alt={`${t(project.titleKey)} mockup`}
           className="w-[500px] max-w-full rounded-[10px] transition-transform duration-500 hover:scale-105"
           loading="lazy"
@@ -151,6 +152,7 @@ interface ProjectDetail {
   summaryKey: string;
   descriptionKey: string;
   technologies: string[];
+  mockup: string;
   images: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -170,7 +172,8 @@ const PROJECTS: ProjectDetail[] = [
       "LangGraph",
       "Python",
     ],
-    images: [mockup, mockup, mockup],
+    mockup: helpdesk_login_mobile,
+    images: [helpdesk_login_mobile, mockup, mockup],
     githubUrl: "https://github.com/samueleras/helpdesk-ai",
   },
   {
@@ -179,6 +182,7 @@ const PROJECTS: ProjectDetail[] = [
     summaryKey: "projects.saas.summary",
     descriptionKey: "projects.saas.description",
     technologies: ["React", "Express.js", "Node.js", "MongoDB", "Tailwind CSS"],
+    mockup: mockup,
     images: [mockup, mockup],
     githubUrl: "https://github.com/samueleras/dreamcars",
     liveUrl: "https://dreamcars-demo.com",
@@ -189,6 +193,7 @@ const PROJECTS: ProjectDetail[] = [
     summaryKey: "projects.marketing.summary",
     descriptionKey: "projects.marketing.description",
     technologies: ["Python", "NumPy", "Matplotlib", "Tkinter"],
+    mockup: mockup,
     images: [mockup],
     githubUrl: "https://github.com/samueleras/tsp-solver",
   },
@@ -198,6 +203,7 @@ const PROJECTS: ProjectDetail[] = [
     summaryKey: "projects.portfolio.summary",
     descriptionKey: "projects.portfolio.description",
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+    mockup: mockup,
     images: [mockup, mockup, mockup, mockup],
     githubUrl: "https://github.com/samueleras/digital-cookbook",
     liveUrl: "https://digital-cookbook-demo.com",
