@@ -40,16 +40,16 @@ const translations = {
       "Dieses Bachelorprojekt beschreibt die Entwicklung einer KI-integrierten IT-Helpdesk-Webanwendung, die ein Large Language Model (LLM) und Retrieval Augmented Generation (RAG) innerhalb eines LLM-gesteuerten Workflows nutzt. Ziel war es, gängige Ineffizienzen traditioneller Helpdesk-Systeme zu beheben, wie etwa den zeitaufwendigen Umgang mit wiederkehrenden Problemen und den Mangel an Details in von Nutzern erstellten Tickets. Basierend auf einer umfassenden Literaturrecherche untersucht das Projekt, wie die Integration von KI-Automatisierungen die Effizienz eines Helpdesks steigern kann. Es wurde ein forschungsbasiertes Anwendungsdesign entwickelt und implementiert, welches ein LLM einsetzt, um die Arbeitslast zu reduzieren, die Ticketqualität zu verbessern und letztlich die Betriebskosten zu senken. Die Anwendung wurde nach einer hybriden Projektmanagementmethodik entwickelt, die Elemente aus Wasserfall und Agile kombiniert, um einen strukturierten Ansatz mit iterativem Testen und adaptiver Priorisierung zu ermöglichen. Das KI-System wurde mit den Python-Frameworks LangChain und LangGraph entwickelt, um einen benutzerdefinierten, zustandsbasierten Workflow zu erstellen, der ein lokal bereitgestelltes LLM nutzt und so dynamische Entscheidungsfindung und Antwortgenerierung ermöglicht. Um eine leistungsstarke und benutzerfreundliche Anwendung sicherzustellen, wurde React für das Frontend und FastAPI für das Backend eingesetzt, während Azure für die sichere Benutzer-Authentifizierung diente und die Ticketdaten in MySQL gespeichert wurden. Zusätzlich kam die Vektordatenbank Milvus zum Einsatz, um RAG-basiertes document retrieval und similarity search zu unterstützen. Das entwickelte System ermöglicht es den Nutzern, mit dem KI-Chatbot zu interagieren, um ihre Probleme zu lösen. Für nicht lösbare Probleme werden qualitativ hochwertige Tickets erstellt, die mit Lösungsvorschlägen und verlinkten ähnlichen Fällen angereichert sind. Eine gründliche Evaluierung und Testphase zeigte, dass die Anwendung ihr Hauptziel – die Steigerung der Helpdesk-Effizienz – erreicht hat. Darüber hinaus bietet sie eine sichere, reaktionsschnelle und benutzerfreundliche Erfahrung bei gleichzeitiger Wahrung hoher Wartungsfreundlichkeit und Anpassungsfähigkeit. Abschließend zeigt dieses Projekt die Machbarkeit und die Vorteile des Einsatzes von KI im IT-Service-Management auf. Es bietet eine skalierbare und anpassbare Lösung für Organisationen, um die Produktivität des Helpdesks zu steigern, die Arbeitslast zu verringern und die Kosteneffizienz zu erhöhen. Der Open-Source-Charakter des Systems bietet eine solide Grundlage für Weiterentwicklungen und zukünftige Forschung.",
     "projects.ai_helpdesk.sections.login.title": "Login & Authentifizierung",
     "projects.ai_helpdesk.sections.login.description":
-      "Sichere Anmeldung mit JWT-Token und Rollenverwaltung für Benutzer und Techniker",
+      "Die Website verwendet Azure für die sichere Anmeldung und Benutzerverwaltung.",
     "projects.ai_helpdesk.sections.chat.title": "KI-Chat & Support",
     "projects.ai_helpdesk.sections.chat.description":
-      "Intelligenter Chatbot mit LangChain-Integration für automatische Ticket-Erstellung und Support",
-    "projects.ai_helpdesk.sections.tickets.title": "Ticket-Management",
+      "Der AI-Chatbot unterstützt Nutzer bei der Lösung von IT-Problemen, liefert automatische Antworten und erstellt bei Bedarf hochwertige, detaillierte Support-Tickets.",
+    "projects.ai_helpdesk.sections.tickets.title": "Ticket-Details",
     "projects.ai_helpdesk.sections.tickets.description":
-      "Umfassendes Ticket-System mit Status-Tracking, Priorisierung und Kategorisierung",
+      "Die Ticket-Detailseite zeigt das qualitativ hochwertige, generierte Ticket mit detaillierter Fallbeschreibung und Lösungsvorschlägen. Zusätzlich werden ähnliche, bereits gelöste Tickets angezeigt. Techniker können das Ticket kommentieren oder dem Nutzer weitere Fragen stellen.",
     "projects.ai_helpdesk.sections.technician.title": "Techniker-Portal",
     "projects.ai_helpdesk.sections.technician.description":
-      "Spezialisierte Oberfläche für Techniker mit erweiterten Funktionen und Ticket-Zuweisung",
+      "Das Techniker-Portal ermöglicht das Zuweisen, Filtern, Suchen, Schließen und erneute Öffnen von Tickets.",
     "projects.saas.title": "DreamCars - Car Shop",
     "projects.saas.summary":
       "Responsive Auto-Shop-Plattform mit modernem UI und umfangreichen Filter- und Suchfunktionen.",
@@ -121,16 +121,16 @@ const translations = {
       "This bachelor’s project presents the development of an AI-integrated IT Helpdesk Web Application, which leverages a Large Language Model (LLM) and Retrieval Augmented Generation (RAG) within an LLM-directed workflow. The aim was to address common inefficiencies in traditional helpdesk systems, such as the time-consuming handling of recurring issues and the lack of detail in user-written tickets. Based on an in-depth literature review, the project investigates how integrating AI automations can enhance helpdesk efficiency. A research-backed application design was created and implemented, leveraging an LLM to reduce workload, increase ticket quality and ultimately lower operational costs. The application was developed using a hybrid project management methodology, which combined Waterfall and Agile to provide a structured approach with iterative testing and adaptive prioritisation. The AI system was developed using the Python frameworks LangChain and LangGraph to build a custom state-driven workflow which leverages a locally deployed LLM to allow for dynamic decision-making and generation of responses. To ensure a performant and user-friendly application, the project employed React on the frontend and FastAPI on the backend, while utilising Azure for secure user authentication, and storing ticket data in MySQL. Additionally, the vector database Milvus was employed to support RAG-based document retrieval and similarity search. The developed system allows users to interact with the AI chatbot to resolve their issues. For unresolvable problems, high-quality tickets are generated, enriched with solution suggestions and linked similar cases. Thorough evaluation and testing showed that the application met its key objective of increasing helpdesk efficiency. Furthermore, it offers a secure, responsive, and user-friendly experience, while preserving high maintainability and customisability. In conclusion, this project demonstrates the feasibility and benefits of leveraging AI in IT Service Management. It provides a scalable and customisable solution for organisations to increase helpdesk productivity, reduce workload, and increase cost-effectiveness. The open-source nature of the system offers a solid foundation for further development and future research.",
     "projects.ai_helpdesk.sections.login.title": "Login & Authentication",
     "projects.ai_helpdesk.sections.login.description":
-      "Secure login with JWT token and role management for users and technicians",
+      "The website uses Azure for secure sign-in and user management.",
     "projects.ai_helpdesk.sections.chat.title": "AI Chat & Support",
     "projects.ai_helpdesk.sections.chat.description":
-      "Intelligent chatbot with LangChain integration for automatic ticket creation and support",
-    "projects.ai_helpdesk.sections.tickets.title": "Ticket Management",
+      "The AI chatbot assists users in resolving IT issues, provides automated responses, and generates high-quality, detailed support tickets when needed.",
+    "projects.ai_helpdesk.sections.tickets.title": "Ticket Details",
     "projects.ai_helpdesk.sections.tickets.description":
-      "Comprehensive ticket system with status tracking, prioritization and categorization",
+      "The ticket detail page displays the high-quality, generated ticket with a detailed case description and solution suggestions. Similar previously resolved tickets are also shown. Technicians can comment on the ticket or ask the user additional questions.",
     "projects.ai_helpdesk.sections.technician.title": "Technician Portal",
     "projects.ai_helpdesk.sections.technician.description":
-      "Specialized interface for technicians with advanced features and ticket assignment",
+      "The technician portal allows assigning, filtering, searching, closing, and reopening tickets.",
     "projects.saas.title": "DreamCars - Car Shop",
     "projects.saas.summary":
       "Responsive car shop platform with modern UI and extensive filter and search functions.",
