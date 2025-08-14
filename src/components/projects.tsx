@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
 import helpdesk_login_mobile from "@/assets/helpdesk_login_mobile.png";
+import helpdesk_login_pc from "@/assets/helpdesk_login_pc.png";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -173,7 +174,12 @@ const PROJECTS: ProjectDetail[] = [
       "Python",
     ],
     mockup: helpdesk_login_mobile,
-    images: [helpdesk_login_mobile, mockup, mockup],
+    images: [
+      helpdesk_login_pc,
+      helpdesk_login_mobile,
+      helpdesk_login_pc,
+      helpdesk_login_mobile,
+    ],
     githubUrl: "https://github.com/samueleras/helpdesk-ai",
   },
   {

@@ -23,12 +23,24 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
   const { theme } = useTheme();
   const { t } = useLanguage();
   const { elementRef, isVisible } = useScrollAnimation();
+  const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
 
   // Theme-specific gradient colors
   const gradientColors =
     theme === "dark"
       ? "bg-[radial-gradient(120%_120%_at_10%_-10%,#6b375d_0%,#2b2e4a_50%,#1b1f2a_100%)]"
       : "bg-[radial-gradient(120%_120%_at_10%_-10%,#e8d5f0_0%,#f8f9fa_50%,#e0a846_100%)]";
+
+  const handleImageClick = (image: string) => {
+    // Only open fullscreen on md screens and larger
+    if (window.innerWidth >= 768) {
+      setSelectedImage(image);
+    }
+  };
+
+  const closeFullscreen = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -235,33 +247,99 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
                   >
                     Bildergalerie
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {project.images.map((image, index) => (
-                      <div
-                        key={index}
-                        className={`rounded-lg overflow-hidden transition-all duration-500 delay-${
-                          900 + index * 100
-                        } ${
-                          isVisible
-                            ? "opacity-100 scale-100"
-                            : "opacity-0 scale-75"
-                        }`}
-                      >
-                        <img
-                          src={image}
-                          alt={`${t(project.titleKey)} screenshot ${index + 1}`}
-                          className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
+
+                  {/* Group images in pairs */}
+                  {Array.from(
+                    { length: Math.ceil(project.images.length / 2) },
+                    (_, sectionIndex) => (
+                      <div key={sectionIndex}>
+                        {/* Section Title */}
+                        <h3
+                          className={`text-lg font-medium mb-4 ${
+                            theme === "dark"
+                              ? "text-textSecondary"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {sectionIndex === 0
+                            ? "Hauptansichten"
+                            : `Ansicht ${sectionIndex + 1}`}
+                        </h3>
+
+                        {/* Image Pair */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                          {project.images
+                            .slice(sectionIndex * 2, sectionIndex * 2 + 2)
+                            .map((image, imageIndex) => (
+                              <div
+                                key={sectionIndex * 2 + imageIndex}
+                                className={`rounded-lg transition-all duration-500 delay-${
+                                  900 + (sectionIndex * 2 + imageIndex) * 100
+                                } ${
+                                  isVisible
+                                    ? "opacity-100 scale-100"
+                                    : "opacity-0 scale-75"
+                                }`}
+                              >
+                                <img
+                                  src={image}
+                                  alt={`${t(project.titleKey)} screenshot ${
+                                    sectionIndex * 2 + imageIndex + 1
+                                  }`}
+                                  className="w-full h-80 object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                  loading="lazy"
+                                  onClick={() => handleImageClick(image)}
+                                />
+                              </div>
+                            ))}
+                        </div>
+
+                        {/* Divider (except after last section) */}
+                        {sectionIndex <
+                          Math.ceil(project.images.length / 2) - 1 && (
+                          <div
+                            className={`h-px mb-8 ${
+                              theme === "dark" ? "bg-white/20" : "bg-gray-300"
+                            }`}
+                          />
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    )
+                  )}
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Fullscreen Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90">
+          <div className="relative max-w-[95vw] max-h-[95vh]">
+            <button
+              onClick={closeFullscreen}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src={selectedImage}
+              alt="Fullscreen view"
+              className="h-[80vh] w-auto object-contain"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
