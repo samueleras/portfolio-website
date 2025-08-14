@@ -161,7 +161,11 @@ interface ProjectDetail {
   technologies: string[];
   mockup: string;
   images: string[];
-  imageSections?: { title: string; description?: string; images: string[] }[];
+  imageSections?: {
+    titleKey: string;
+    descriptionKey?: string;
+    images: string[];
+  }[];
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -193,27 +197,23 @@ const PROJECTS: ProjectDetail[] = [
     ],
     imageSections: [
       {
-        title: "Login & Authentifizierung",
-        description:
-          "Sichere Anmeldung mit JWT-Token und Rollenverwaltung für Benutzer und Techniker",
+        titleKey: "projects.ai_helpdesk.sections.login.title",
+        descriptionKey: "projects.ai_helpdesk.sections.login.description",
         images: [helpdesk_login_pc, helpdesk_login_mobile],
       },
       {
-        title: "KI-Chat & Support",
-        description:
-          "Intelligenter Chatbot mit LangChain-Integration für automatische Ticket-Erstellung und Support",
+        titleKey: "projects.ai_helpdesk.sections.chat.title",
+        descriptionKey: "projects.ai_helpdesk.sections.chat.description",
         images: [helpdesk_ai_chat_pc, helpdesk_ai_chat_mobile],
       },
       {
-        title: "Ticket-Management",
-        description:
-          "Umfassendes Ticket-System mit Status-Tracking, Priorisierung und Kategorisierung",
+        titleKey: "projects.ai_helpdesk.sections.tickets.title",
+        descriptionKey: "projects.ai_helpdesk.sections.tickets.description",
         images: [helpdesk_ticket_pc, helpdesk_ticket_mobile],
       },
       {
-        title: "Techniker-Portal",
-        description:
-          "Spezialisierte Oberfläche für Techniker mit erweiterten Funktionen und Ticket-Zuweisung",
+        titleKey: "projects.ai_helpdesk.sections.technician.title",
+        descriptionKey: "projects.ai_helpdesk.sections.technician.description",
         images: [
           helpdesk_technicianportal_pc,
           helpdesk_technicianportal_mobile,
