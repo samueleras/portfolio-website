@@ -169,9 +169,9 @@ interface ProjectDetail {
 const PROJECTS: ProjectDetail[] = [
   {
     id: "p1",
-    titleKey: "projects.ecommerce.title",
-    summaryKey: "projects.ecommerce.summary",
-    descriptionKey: "projects.ecommerce.description",
+    titleKey: "projects.ai_helpdesk.title",
+    summaryKey: "projects.ai_helpdesk.summary",
+    descriptionKey: "projects.ai_helpdesk.description",
     technologies: [
       "React",
       "TypeScript",
@@ -220,7 +220,7 @@ const PROJECTS: ProjectDetail[] = [
         ],
       },
     ],
-    githubUrl: "https://github.com/samueleras/helpdesk-ai",
+    githubUrl: "https://github.com/samueleras/ai-helpdesk-bachelors-project",
   },
   {
     id: "p2",
