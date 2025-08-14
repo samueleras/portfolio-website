@@ -2,8 +2,16 @@ import * as React from "react";
 import Lottie from "lottie-react";
 import buildProduct from "@/assets/Build Product Colored.json";
 import mockup from "@/assets/mockup.png";
-import helpdesk_login_mobile from "@/assets/helpdesk_login_mobile.png";
-import helpdesk_login_pc from "@/assets/helpdesk_login_pc.png";
+import helpdesk_login_mobile from "@/assets/helpdesk_login_mobile.webp";
+import helpdesk_login_pc from "@/assets/helpdesk_login_pc.webp";
+import helpdesk_ticket_pc from "@/assets/helpdesk_ticket_pc.webp";
+import helpdesk_ticket_mobile from "@/assets/helpdesk_ticket_mobile.webp";
+import helpdesk_technicianportal_pc from "@/assets/helpdesk_technicianportal_pc.webp";
+import helpdesk_technicianportal_mobile from "@/assets/helpdesk_technicianportal_mobile.webp";
+import helpdesk_my_tickets_pc from "@/assets/helpdesk_my_tickets_pc.webp";
+import helpdesk_my_tickets_mobile from "@/assets/helpdesk_my_tickets_mobile.webp";
+import helpdesk_ai_chat_pc from "@/assets/helpdesk_ai_chat_pc.webp";
+import helpdesk_ai_chat_mobile from "@/assets/helpdesk_ai_chat_mobile.webp";
 import { useTheme } from "./theme-provider";
 import { useLanguage } from "./language-provider";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -177,8 +185,14 @@ const PROJECTS: ProjectDetail[] = [
     images: [
       helpdesk_login_pc,
       helpdesk_login_mobile,
-      helpdesk_login_pc,
-      helpdesk_login_mobile,
+      helpdesk_ai_chat_pc,
+      helpdesk_ai_chat_mobile,
+      helpdesk_ticket_pc,
+      helpdesk_ticket_mobile,
+      helpdesk_technicianportal_pc,
+      helpdesk_technicianportal_mobile,
+      helpdesk_my_tickets_pc,
+      helpdesk_my_tickets_mobile,
     ],
     githubUrl: "https://github.com/samueleras/helpdesk-ai",
   },
